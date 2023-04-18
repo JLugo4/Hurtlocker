@@ -39,7 +39,7 @@ public class test {
     public void testStringContainsCookiesSpelledCorrectly() {
         String inputString = result;
         boolean result = inputString.contains("Cookies")
-                && !inputString.contains("CoOkieO")
+                && !inputString.contains("CoOkieS")
                 && !inputString.contains("COokIeS")
                 && !inputString.contains("COOkIeS")
                 && !inputString.contains("Co0kieS")
