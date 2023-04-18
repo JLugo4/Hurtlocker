@@ -2,9 +2,14 @@ import org.apache.commons.io.IOUtils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.lang.Long.sum;
 
 public class Main {
     //Group by name
@@ -28,8 +33,32 @@ public class Main {
         String output = (new Main()).readRawDataToString();
         System.out.println(output);
         String[] splitLines = splitWithoutDotSplit(output, "##");
+        //Split method seperates from each '##' and puts each product on each line
+        //Map out split Lines
+        Map<String, List<String>> groupTheLines = Arrays.stream(splitLines)
+                .filter(line -> !line.trim().isEmpty())                 // \\t = tab
+                .collect(Collectors.groupingBy(line -> line.split("[:\\t]")[1].trim()));
+        //Grouped lines,
+        for(Map.Entry<String, List<String>> entry : groupTheLines.entrySet()){
+            System.out.println(entry.getKey() + ":");
+            List<String> productLines = entry.getValue();
+            int seenItems = productLines.size();
+            //Mapping out the item prices
+            Map<String, Integer> itemPriceSeenMap = productLines.stream()
+                    .map(line -> line.split("[:\\t]"))
+                    .collect(Collectors.groupingBy(arr -> arr[2].trim(),Collectors.summingInt(arr -> 1)
+                    ));
+            double totalPrice = productLines.stream()
+                    .map(line -> line.split("[:\\t]"))
+                    .mapToDouble((arr -> Double.parseDouble(arr[4].trim().substring(1)))
+                            sum();
+
+        }
 
     }
+
+
+    //My split method
     public static String[] splitWithoutDotSplit(String str, String delimiter) {
         ArrayList<String> subs = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
