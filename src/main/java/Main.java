@@ -50,9 +50,20 @@ public class Main {
                     ));
             double totalPrice = productLines.stream()
                     .map(line -> line.split("[:\\t]"))
-                    .mapToDouble((arr -> Double.parseDouble(arr[4].trim().substring(1)))
-                            sum();
+                    .mapToDouble(arr -> Double.parseDouble(arr[4].trim().substring(1)))
+                    .sum();
+            //Formatting for print
+            System.out.println("=============\t\t==============");
+            System.out.printf("Price:\t $%.2f\t seen: %d times\n", totalPrice, seenItems);
+            System.out.println("-------------\t\t--------------");
 
+            for (Map.Entry<String, Integer> priceEntry : itemPriceSeenMap.entrySet()) {
+                String priceStr = priceEntry.getKey();
+                int seen = priceEntry.getValue();
+                System.out.printf("Price:\t %s\t seen: %d time%s\n", priceStr, seen, seen > 1 ? "s" : "");
+            }
+
+            System.out.println();
         }
 
     }

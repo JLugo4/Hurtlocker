@@ -3,10 +3,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class hurtMethods {
-    //Pattern
-    String patternString = "##";
-    Pattern pattern = Pattern.compile(patternString);
-    Matcher matcher = pattern.matcher(result);
+//    //Pattern
+//    String patternString = "##";
+//    Pattern pattern = Pattern.compile(patternString);
+//    Matcher matcher = pattern.matcher(result);
 
 
 
