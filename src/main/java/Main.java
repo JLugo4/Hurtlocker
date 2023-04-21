@@ -28,10 +28,16 @@ public class Main {
         return result;
 
     }
+    // Matcher
+    // Pattern
+
+    //Need another method to return text to call in main
+    // Call this new method in Test
 
     public static void main(String[] args) throws Exception{
         String output = (new Main()).readRawDataToString();
         System.out.println(output);
+        //Trying new method VVVV WILL REPLACE
         String[] splitLines = splitWithoutDotSplit(output, "##");
         //Split method seperates from each '##' and puts each product on each line
         //Map out split Lines
@@ -69,31 +75,26 @@ public class Main {
     }
 
 
-    //My split method
-    public static String[] splitWithoutDotSplit(String str, String delimiter) {
-        ArrayList<String> subs = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < str.length(); i++) {
-            if (i <= str.length() - delimiter.length()
-                    && str.substring(i, i - delimiter.length()).equals(delimiter)) {
-                subs.add(sb.toString());
-                i += delimiter.length();
-            } else {
-                sb.append(str.charAt(i));
-            }
-        }
-        subs.add(sb.toString());
-        String[] splitString = new String[subs.size()];
-        for (int i = 0; i < subs.size(); i++) {
-            splitString[i] = subs.get(i);
-        }
-        return splitString;
-    }
-    public static String[] formatString(){
-
-
-        return null;
-    }
+    //Scrapped Split method
+//    public static String[] splitWithoutDotSplit(String str, String delimiter) {
+//        ArrayList<String> subs = new ArrayList<>();
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = 0; i < str.length(); i++) {
+//            if (i <= str.length() - delimiter.length()
+//                    && str.substring(i, i - delimiter.length()).equals(delimiter)) {
+//                subs.add(sb.toString());
+//                i += delimiter.length();
+//            } else {
+//                sb.append(str.charAt(i));
+//            }
+//        }
+//        subs.add(sb.toString());
+//        String[] splitString = new String[subs.size()];
+//        for (int i = 0; i < subs.size(); i++) {
+//            splitString[i] = subs.get(i);
+//        }
+//        return splitString;
+//    }
 
 }
 

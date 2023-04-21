@@ -11,7 +11,7 @@ public class test {
         String result;
     }
 
-
+    // Call new output method in here
     @Test
     public void doesNotContainHashTagTest(){
         String inputString = result;
