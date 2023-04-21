@@ -8,19 +8,19 @@ public class test {
     }
     @Before
     public void Init(){
-        String result;
+        String printOut;
     }
 
     // Call new output method in here
     @Test
     public void doesNotContainHashTagTest(){
-        String inputString = result;
+        String inputString = printOut;
         boolean testcode = !inputString.contains("##");
         Assert.assertTrue(testcode);
     }
     @Test
     public void testStringContainsErrorFourTimes() {
-        String inputString = result;
+        String inputString = printOut;
         int count = 0;
         int fromIndex = 0;
         while ((fromIndex = inputString.indexOf("Error", fromIndex)) != -1) {
@@ -31,13 +31,13 @@ public class test {
     }
     @Test
     public void doesNotContainExpirationTest(){
-        String inputString = result;
+        String inputString = printOut;
         boolean testcode = !inputString.contains("expiration");
         Assert.assertTrue(testcode);
     }
     @Test
     public void testStringContainsCookiesSpelledCorrectly() {
-        String inputString = result;
+        String inputString = printOut;
         boolean result = inputString.contains("Cookies")
                 && !inputString.contains("CoOkieS")
                 && !inputString.contains("COokIeS")
@@ -48,7 +48,7 @@ public class test {
     }
     @Test
     public void testStringContainsNameFourTimes() {
-        String inputString = result;
+        String inputString = printOut;
         int count = inputString.split("name", -1).length - 1;
         Assert.assertEquals(4, count);
     }
